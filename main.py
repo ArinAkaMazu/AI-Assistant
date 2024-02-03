@@ -6,6 +6,4 @@ def speak(text):
     engine.setProperty("voice",id)
     engine.say(text=text)
     engine.runAndWait()
-speak("Hello simple. go study we need to work")
-    
-    
+speak("What is your name")
