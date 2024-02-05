@@ -1,9 +1,44 @@
 import pyttsx3
-def speak(text):
-    engine= pyttsx3.init()
-    voices=engine.getProperty("voices")
-    id=r"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
-    engine.setProperty("voice",id)
-    engine.say(text=text)
+import speech_recognition
+engine = pyttsx3.init("sapi5")
+voices = engine.getProperty("voices")
+engine.setProperty("voice", voices[0].id)
+engine.setProperty("rate",170)
+
+def speak(audio):
+    engine.say(audio)
     engine.runAndWait()
-speak("What is your name")
+def takeCommand():
+    r=speech_recognition.Recognizer()
+    with speech_recognition.Microphone() as source:
+        print("listening.....")
+        r.pause_threshold=1
+        r.energy_threshold=300
+        audio=r.listen(source,0,4)
+    try:
+        print("Processing...")
+        query=r.recognize_google(audio,language="en-in")
+        print(f"You Said {query}\n")
+    except Exception as e:
+        print("couldnt undetstand, try again")
+        return "None"
+    return query
+if __name__=="__main__":
+    while True:
+        query=takeCommand().lower()
+        if "wake up"in query:
+            from Greet import greet
+            greet()
+            
+            while True:
+                query= takeCommand().lower()
+                if "good night" in query:
+                    speak("Bye boss, wake me; when you need me")
+                    break
+                elif "hello there" in query:
+                    speak("Hi boss, how are you doing?")
+                elif "i am great" or "i am fine" in query:
+                    speak("glad to know boss")
+                elif "how are you" in query:
+                    speak("I am fine boss")
+
