@@ -5,6 +5,7 @@ import webbrowser
 import wikipedia
 
 def takeCommand():
+#speech recognition input
     r=speech_recognition.Recognizer()
     with speech_recognition.Microphone() as source:
         print("listening.....")
@@ -29,6 +30,7 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 def searchGoogle(query):
+    #google search
     if "google" in query:
         import wikipedia as googleScrap
         query= query.replace("doc","")
@@ -45,6 +47,7 @@ def searchGoogle(query):
             speak("No results found")
 
 def searchYoutube(query):
+    #youtube search 
     if "youtube" in query:
         speak("searching on youtube...")
         query= query.replace("doc","")

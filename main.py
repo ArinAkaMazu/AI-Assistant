@@ -18,23 +18,26 @@ def takeCommand():
     try:
         print("Processing...")
         query=r.recognize_google(audio,language="en-in")
-        print(f"You Said {query}\n")
+        print(f"You Said {query}\n") #entered query
     except Exception as e:
-        print("couldnt undetstand, try again")
+        print("couldnt undetstand, try again") #result if no input given
         return "None"
     return query
 if __name__=="__main__":
     while True:
         query=takeCommand().lower()
         if "wake up"in query:
+    #boot command
             from Greet import greet
             greet()
-            
+#------------------------------------------------------------------------------------------------------
+    #speech values
             while True:
                 query= takeCommand().lower()
                 if "good night" in query:
                     speak("Bye boss, wake me; when you need me")
                     break
+    #shut down command
                 elif "hello there" in query:
                     speak("Hi boss, how are you doing?")
                 elif "i am fine" in query:
@@ -43,6 +46,7 @@ if __name__=="__main__":
                     speak("I am fine boss, how are you?")
                 elif "thank you" in query:
                     speak("Welcome, Boss")
+#------------------------------------------------------------------------------------------------------
                 elif "google" in query:
                     from search import searchGoogle
                     searchGoogle(query)
