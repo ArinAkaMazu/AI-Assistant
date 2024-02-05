@@ -16,7 +16,7 @@ def takeCommand():
         r.energy_threshold=300
         audio=r.listen(source,0,4)
     try:
-        print("Processing.....")
+        print("Processing...")
         query=r.recognize_google(audio,language="en-in")
         print(f"You Said {query}\n")
     except Exception as e:

@@ -32,7 +32,7 @@ def searchGoogle(query):
     if "google" in query:
         import wikipedia as googleScrap
         query= query.replace("doc","")
-        query= query.replace("google search","")
+        query= query.replace("search on google","")
         query= query.replace("google","")
         speak("Here are the results from web")
 
@@ -48,7 +48,7 @@ def searchYoutube(query):
     if "youtube" in query:
         speak("searching on youtube...")
         query= query.replace("doc","")
-        query= query.replace("youtube search","")
+        query= query.replace("search on youtube","")
         query= query.replace("youtube","")
         web= "https://www.youtube.com/results?search_query=" + query
         webbrowser.open(web)
