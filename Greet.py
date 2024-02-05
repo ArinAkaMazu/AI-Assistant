@@ -13,11 +13,11 @@ def greet():
     hour=int(datetime.datetime.now().hour)
     if hour>=0 and hour<=12:
         speak("Good Morning,boss")
-    #if morning
+    #if morning 12 am to 12 pm
     elif hour>12 and hour<=18:
         speak("Good Afternoon,boss")
-    #if noon
+    #if noon 12 pm to 6 pm
     else:
         speak("Good evening,boss")
-    #if evening
+    #if evening after 6pm
     speak("Lets get to work, shall we")
