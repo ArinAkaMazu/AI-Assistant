@@ -1,13 +1,12 @@
-import pyttsx3
-import speech_recognition
+import pyttsx3 #gives audio to pc
+import speech_recognition #understand the user input
 #----------------------------------------------------------------------------------------------------------
 #main engine
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[0].id) #microsoft david voice
 engine.setProperty("rate",170) #audio sound
-
-def speak(audio):
+def speak(audio): #speak function to enter input 
     engine.say(audio)
     engine.runAndWait()
 #----------------------------------------------------------------------------------------------------------
@@ -28,7 +27,7 @@ def takeCommand():
         return "None"
     return query
 if __name__=="__main__":
-    while True:
+    while True: #infinite loop until shutted down
         query=takeCommand().lower()
         if "wake up"in query:
     #boot command

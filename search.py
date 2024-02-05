@@ -37,15 +37,12 @@ def searchGoogle(query):
         query= query.replace("search on google","")
         query= query.replace("google","")
         speak("Here are the results from web")
-
         try:
             pywhatkit.search(query)
             result=googleScrap.summary(query,1)
             speak(result)
-
         except:
             speak("No results found")
-
 def searchYoutube(query):
     #youtube search 
     if "youtube" in query:
