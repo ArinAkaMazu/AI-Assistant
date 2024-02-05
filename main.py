@@ -37,8 +37,18 @@ if __name__=="__main__":
                     break
                 elif "hello there" in query:
                     speak("Hi boss, how are you doing?")
-                elif "i am great" or "i am fine" in query:
+                elif "i am fine" in query:
                     speak("glad to know boss")
                 elif "how are you" in query:
-                    speak("I am fine boss")
+                    speak("I am fine boss, how are you?")
+                elif "thank you" in query:
+                    speak("Welcome, Boss")
+                elif "google" in query:
+                    from search import searchGoogle
+                    searchGoogle(query)
+                elif "youtube" in query:
+                    from search import searchYoutube
+                    searchYoutube(query)
+                
+                
 

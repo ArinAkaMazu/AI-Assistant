@@ -3,7 +3,7 @@ import datetime
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[1].id)
+engine.setProperty("voice", voices[0].id)
 engine.setProperty("rate",170)
 
 def speak(audio):
@@ -17,4 +17,4 @@ def greet():
         speak("Good Afternoon,boss")
     else:
         speak("Good evening,boss")
-    speak("Shall we start then?")
+    speak("Lets get to work, shall we")
