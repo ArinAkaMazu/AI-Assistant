@@ -44,7 +44,9 @@ if __name__=="__main__":
                     speak("going silent mode") #breaks and loop and stops taking input
                     break #end of loop after saying "good night"/shutting down
                 elif "hello there" in query:
-                    speak("Hi boss, how are you doing?")
+                    speak("General Kenobi!!!")
+                elif "hello" in query:
+                    speak("Hello boss")
                 elif "i am fine" in query:
                     speak("glad to know boss")
                 elif "how are you" in query:
@@ -63,7 +65,7 @@ if __name__=="__main__":
                     search = "temperature in alwar"
                     url = f"https://www.google.com/search?q={search}" #Search wether on google 
                     r  = requests.get(url)
-                    data = BeautifulSoup(r.text,"html.parser")
+                    data = BeautifulSoup(r.text,"html.parser") #This line uses the BeautifulSoup library to parse the HTML content of the web page retrieved by the requests.get(url)
                     temp = data.find("div", class_ = "BNeawe").text
                     speak(f"current{search} is {temp}")
                 elif "weather" in query:
@@ -76,8 +78,8 @@ if __name__=="__main__":
 #---------------------------------------------------------------------------------------------------------
                 elif "time" in query:
                     strTime = datetime.datetime.now().strftime("%H:%M")    #tells current time
-                    speak(f"Boss, its {strTime} right now")
+                    speak(f"Boss, its currently {strTime} right now")
 #---------------------------------------------------------------------------------------------------------
                 elif "good night" in query:
                     speak ("bye boss. Wake me when you need me!")
-                    exit()
+                    exit() #exits the code 
