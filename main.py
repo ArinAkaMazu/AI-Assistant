@@ -36,12 +36,12 @@ if __name__=="__main__":
     #boot command
             from Greet import greet
             greet()
-#------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------
     #Greet values
             while True:
                 query= takeCommand().lower()
                 if "stop listening" in query:
-                    speak("going silent mode") #shut down command
+                    speak("going silent mode") #breaks and loop and stops taking input
                     break #end of loop after saying "good night"/shutting down
                 elif "hello there" in query:
                     speak("Hi boss, how are you doing?")
@@ -51,14 +51,14 @@ if __name__=="__main__":
                     speak("I am fine boss, how are you?")
                 elif "thank you" in query:
                     speak("Welcome, Boss")
-#------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------
                 elif "google" in query:
                     from search import searchGoogle #search input on google
                     searchGoogle(query)
                 elif "youtube" in query:
                     from search import searchYoutube #search input on youtube
                     searchYoutube(query)
-#------------------------------------------------------------------------------------------------------       
+#--------------------------------------------------------------------------------------------------------    
                 elif "temperature" in query:
                     search = "temperature in alwar"
                     url = f"https://www.google.com/search?q={search}" #Search wether on google 
@@ -73,10 +73,11 @@ if __name__=="__main__":
                     data = BeautifulSoup(r.text,"html.parser")
                     temp = data.find("div", class_ = "BNeawe").text
                     speak(f"current{search} is {temp}")
-#------------------------------------------------------------------------------------------------------ 
+#---------------------------------------------------------------------------------------------------------
                 elif "time" in query:
                     strTime = datetime.datetime.now().strftime("%H:%M")    #tells current time
                     speak(f"Boss, its {strTime} right now")
+#---------------------------------------------------------------------------------------------------------
                 elif "good night" in query:
                     speak ("bye boss. Wake me when you need me!")
                     exit()
