@@ -1,5 +1,8 @@
 import pyttsx3 #gives audio to pc
 import speech_recognition #understand the user input
+import requests 
+from bs4 import BeautifulSoup
+import datetime
 #----------------------------------------------------------------------------------------------------------
 #main engine
 engine = pyttsx3.init("sapi5")
@@ -37,8 +40,8 @@ if __name__=="__main__":
     #Greet values
             while True:
                 query= takeCommand().lower()
-                if "good night" in query:
-                    speak("Bye boss, wake me; when you need me") #shut down command
+                if "stop listening" in query:
+                    speak("going silent mode") #shut down command
                     break #end of loop after saying "good night"/shutting down
                 elif "hello there" in query:
                     speak("Hi boss, how are you doing?")
@@ -55,6 +58,25 @@ if __name__=="__main__":
                 elif "youtube" in query:
                     from search import searchYoutube #search input on youtube
                     searchYoutube(query)
-                
-                
-
+#------------------------------------------------------------------------------------------------------       
+                elif "temperature" in query:
+                    search = "temperature in alwar"
+                    url = f"https://www.google.com/search?q={search}" #Search wether on google 
+                    r  = requests.get(url)
+                    data = BeautifulSoup(r.text,"html.parser")
+                    temp = data.find("div", class_ = "BNeawe").text
+                    speak(f"current{search} is {temp}")
+                elif "weather" in query:
+                    search = "temperature in alwar"
+                    url = f"https://www.google.com/search?q={search}"
+                    r  = requests.get(url)
+                    data = BeautifulSoup(r.text,"html.parser")
+                    temp = data.find("div", class_ = "BNeawe").text
+                    speak(f"current{search} is {temp}")
+#------------------------------------------------------------------------------------------------------ 
+                elif "time" in query:
+                    strTime = datetime.datetime.now().strftime("%H:%M")    #tells current time
+                    speak(f"Boss, its {strTime} right now")
+                elif "good night" in query:
+                    speak ("bye boss. Wake me when you need me!")
+                    exit()
