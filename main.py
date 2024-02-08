@@ -53,6 +53,13 @@ if __name__=="__main__":
                     speak("I am fine boss, how are you?")
                 elif "thank you" in query:
                     speak("Welcome, Boss")
+#-------------------------------------------------------------------------------------------------------- 
+                elif "open" in query:
+                    from dictapps import openappweb
+                    openappweb(query)
+                elif "close" in query:
+                    from dictapps import closeappweb
+                    closeappweb(query)
 #--------------------------------------------------------------------------------------------------------
                 elif "search on google" in query:
                     from search import searchGoogle #search input on google
@@ -60,7 +67,7 @@ if __name__=="__main__":
                 elif "search on youtube" in query:
                     from search import searchYoutube #search input on youtube
                     searchYoutube(query)
-#--------------------------------------------------------------------------------------------------------    
+#-------------------------------------------------------------------------------------------------------- 
                 elif "temperature" in query:
                     search = "temperature in alwar"
                     url = f"https://www.google.com/search?q={search}" #Search wether on google 
@@ -81,5 +88,5 @@ if __name__=="__main__":
                     speak(f"Boss, its currently {strTime} right now")
 #---------------------------------------------------------------------------------------------------------
                 elif "good night" in query:
-                    speak ("bye boss. Wake me when you need me!")
+                    speak ("bye boss. Wake me, when you need me!")
                     exit() #exits the code 
