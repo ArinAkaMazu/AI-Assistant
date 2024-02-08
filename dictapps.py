@@ -13,8 +13,9 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
-dictapp = {"command prompt":"cmd","paint":"paint","word":"winword","excel":"excel","brave":"brave","vscode":"code","powerpoint":"powerpnt"}
-
+dictapp = {"command prompt":"cmd","paint":"paint","word":"winword","excel":"excel",
+          "brave":"brave","vscode":"code","powerpoint":"powerpnt",
+          "notion":"notion"}
 def openappweb(query):
     speak("Launching, sir")
     if ".com" in query or ".co.in" in query or ".org" in query:
