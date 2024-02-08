@@ -54,10 +54,10 @@ if __name__=="__main__":
                 elif "thank you" in query:
                     speak("Welcome, Boss")
 #--------------------------------------------------------------------------------------------------------
-                elif "google" in query:
+                elif "search on google" in query:
                     from search import searchGoogle #search input on google
                     searchGoogle(query)
-                elif "youtube" in query:
+                elif "search on youtube" in query:
                     from search import searchYoutube #search input on youtube
                     searchYoutube(query)
 #--------------------------------------------------------------------------------------------------------    
