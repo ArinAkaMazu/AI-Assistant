@@ -3,6 +3,7 @@ import speech_recognition #understand the user input
 import requests 
 from bs4 import BeautifulSoup
 import datetime
+import os
 #----------------------------------------------------------------------------------------------------------
 #main engine
 engine = pyttsx3.init("sapi5")
@@ -29,6 +30,11 @@ def takeCommand():
         print("couldnt undetstand, try again") #result if no input given
         return "None"
     return query
+def alarm(query):
+    timehere=open("alarmtext.txt","a")
+    timehere.write(query)
+    timehere.close()
+    os.startfile("alarm.py")
 if __name__=="__main__":
     while True: #infinite loop until shutted down
         query=takeCommand().lower()
@@ -86,7 +92,13 @@ if __name__=="__main__":
                 elif "time" in query:
                     strTime = datetime.datetime.now().strftime("%H:%M")    #tells current time
                     speak(f"Boss, its currently {strTime} right now")
+                elif "set alarm" in query:
+                    print("input time, Example: 10 and 10 and 10")
+                    speak("please set the time")
+                    a=input("Enter the time")
+                    alarm(a)
+                    speak("Done boss")
 #---------------------------------------------------------------------------------------------------------
                 elif "good night" in query:
                     speak ("bye boss. Wake me, when you need me!")
-                    exit() #exits the code 
+                    exit() #exits the code 18
