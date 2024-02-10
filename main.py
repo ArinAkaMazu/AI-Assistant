@@ -5,7 +5,8 @@ from bs4 import BeautifulSoup
 import datetime
 import os
 import pyautogui
-import keyboard
+import random
+import webbrowser
 #----------------------------------------------------------------------------------------------------------
 #main engine
 engine = pyttsx3.init("sapi5")
@@ -65,10 +66,10 @@ if __name__=="__main__":
                 elif "pause" in query:
                     pyautogui.press("k")
                     speak("video paused")
-                elif "play" in query:
+                elif "resume" in query:
                     pyautogui.press("k")
                     speak("video played")
-                elif "mute" in query:
+                elif "mute" in query:       #volume and youtube commands 
                     pyautogui.press("m")
                     speak("video muted")
                 elif "unmute" in query:
@@ -84,7 +85,7 @@ if __name__=="__main__":
                     volumedown()
 #-------------------------------------------------------------------------------------------------------- 
                 elif "open" in query:
-                    from dictapps import openappweb #open apps  
+                    from dictapps import openappweb #open apps  kkkk
                     openappweb(query)
                 elif "close" in query:
                     from dictapps import closeappweb
@@ -96,7 +97,18 @@ if __name__=="__main__":
                 elif "search on youtube" in query:
                     from search import searchYoutube #search input on youtube
                     searchYoutube(query)
-#-------------------------------------------------------------------------------------------------------- 
+#--------------------------------------------------------------------------------------------------------
+                elif "play me some music" in query: 
+                    speak("Playing you some good music, boss")
+                    a=(1,2,3)
+                    b=random.choice(a)
+                    if b==1:
+                        webbrowser.open("https://youtu.be/fhzKLBZJC3w?si=EkkEe8dfmZ2GtdI7")
+                    elif b==2:
+                        webbrowser.open("https://youtu.be/zuoVd2QNxJo?si=a6BgXrIZ8PyUSRfX")
+                    elif b==3:
+                        webbrowser.open("https://youtu.be/M2cckDmNLMI?si=vw6kY3zS1g1N9lSX")
+#--------------------------------------------------------------------------------------------------------
                 elif "temperature" in query:
                     search = "temperature in alwar"
                     url = f"https://www.google.com/search?q={search}" #Search wether on google 
@@ -121,6 +133,17 @@ if __name__=="__main__":
                     a=input("Enter the time")
                     alarm(a)
                     speak("Done boss")
+#---------------------------------------------------------------------------------------------------------
+                elif "remind me" in query:
+                    remindMe=query.replace("remind me","")
+                    remindMe=query.replace("doc","")
+                    speak("Ok i will"+ remindMe)
+                    remind=open("remindMe.txt","w")
+                    remind.write(remindMe)
+                    remind.close()
+                elif "show me my tasks" in query:
+                    remind=open("remindMe.txt","r")
+                    speak("here are your tasks"+ remind.read())
 #---------------------------------------------------------------------------------------------------------
                 elif "good night" in query:
                     speak ("bye boss. Wake me, when you need me!")
