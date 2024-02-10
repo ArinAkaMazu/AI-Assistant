@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 import os
+import pyautogui
 #----------------------------------------------------------------------------------------------------------
 #main engine
 engine = pyttsx3.init("sapi5")
@@ -50,7 +51,7 @@ if __name__=="__main__":
                     speak("going silent mode") #breaks and loop and stops taking input
                     break #end of loop after saying "good night"/shutting down
                 elif "hello there" in query:
-                    speak("General Kenobi!!!")
+                    speak("General Kenobi!!!") #star wars reference 
                 elif "hello" in query:
                     speak("Hello boss")
                 elif "i am fine" in query:
@@ -60,8 +61,18 @@ if __name__=="__main__":
                 elif "thank you" in query:
                     speak("Welcome, Boss")
 #-------------------------------------------------------------------------------------------------------- 
+                elif "pause" in query:
+                    pyautogui.press("k")
+                    speak("video paused")
+                elif "play" in query:
+                    pyautogui.press("k")
+                    speak("video resumed")
+                elif "mute" in query:
+                    pyautogui.press("m")
+                    speak("muted")
+#-------------------------------------------------------------------------------------------------------- 
                 elif "open" in query:
-                    from dictapps import openappweb
+                    from dictapps import openappweb #open apps  
                     openappweb(query)
                 elif "close" in query:
                     from dictapps import closeappweb

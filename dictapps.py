@@ -14,7 +14,7 @@ def speak(audio):
     engine.runAndWait()
 
 dictapp = {"command prompt":"cmd","paint":"paint","word":"winword","excel":"excel",
-          "brave":"brave","vscode":"code","powerpoint":"powerpnt",
+          "brave":"brave","vs code":"code","powerpoint":"powerpnt",
           "notion":"notion"}
 def openappweb(query):
     speak("Launching, sir")
