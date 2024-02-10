@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import datetime
 import os
 import pyautogui
+import keyboard
 #----------------------------------------------------------------------------------------------------------
 #main engine
 engine = pyttsx3.init("sapi5")
