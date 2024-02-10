@@ -1,12 +1,12 @@
-import pyttsx3 #gives audio to pc
-import speech_recognition #understand the user input
-import requests 
-from bs4 import BeautifulSoup
-import datetime
-import os
-import pyautogui
-import random
-import webbrowser
+import pyttsx3                  #gives audio to pc
+import speech_recognition       #understand the user input
+import requests                 #used to make HTTP requests
+from bs4 import BeautifulSoup   #extract info from HTML pages 
+import datetime                 #helps with time ralated data
+import os                       #helps using operating system freely
+import pyautogui                #allowing use of mouse and keyboard
+import random                   #choose random value
+import webbrowser               #open stuff in browsers i.e URL
 #----------------------------------------------------------------------------------------------------------
 #main engine
 engine = pyttsx3.init("sapi5")
