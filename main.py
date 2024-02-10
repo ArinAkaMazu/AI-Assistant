@@ -67,10 +67,21 @@ if __name__=="__main__":
                     speak("video paused")
                 elif "play" in query:
                     pyautogui.press("k")
-                    speak("video resumed")
+                    speak("video played")
                 elif "mute" in query:
                     pyautogui.press("m")
-                    speak("muted")
+                    speak("video muted")
+                elif "unmute" in query:
+                    pyautogui.press("m")
+                    speak("video unmuted")
+                elif "increse the volume" in query:
+                    from keyboard import volumeup
+                    speak("Turning volume up,sir")
+                    volumeup()
+                elif "decrese the volume" in query:
+                    from keyboard import volumedown
+                    speak("Turning volume down, sir")
+                    volumedown()
 #-------------------------------------------------------------------------------------------------------- 
                 elif "open" in query:
                     from dictapps import openappweb #open apps  
