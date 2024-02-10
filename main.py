@@ -100,7 +100,7 @@ if __name__=="__main__":
 #--------------------------------------------------------------------------------------------------------
                 elif "play me some music" in query: 
                     speak("Playing you some good music, boss")
-                    a=(1,2,3)
+                    a=(1,2,3)           #Plays random music/video from youtube
                     b=random.choice(a)
                     if b==1:
                         webbrowser.open("https://youtu.be/fhzKLBZJC3w?si=EkkEe8dfmZ2GtdI7")
@@ -144,6 +144,15 @@ if __name__=="__main__":
                 elif "show me my tasks" in query:
                     remind=open("remindMe.txt","r")
                     speak("here are your tasks"+ remind.read())
+#---------------------------------------------------------------------------------------------------------
+                elif "shutdown the system" in query:
+                    speak("Are You sure you want to shutdown")
+                    shutdown = input("Do you wish to shutdown your computer? (y/n)")
+                    if shutdown == "y":
+                        os.system("shutdown /s /t 1")
+
+                    elif shutdown == "n":
+                        break
 #---------------------------------------------------------------------------------------------------------
                 elif "good night" in query:
                     speak ("bye boss. Wake me, when you need me!")
