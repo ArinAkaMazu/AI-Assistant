@@ -33,11 +33,13 @@ def takeCommand():
         print("couldnt undetstand, try again") #result if no input given
         return "None"
     return query
+#---------------------------------------------------------------------------------------------------------
 def alarm(query):
-    timehere=open("alarmtext.txt","a")
+    timehere=open("alarmtext.txt","a") #alarm function
     timehere.write(query)
     timehere.close()
     os.startfile("alarm.py")
+#---------------------------------------------------------------------------------------------------------
 if __name__=="__main__":
     while True: #infinite loop until shutted down
         query=takeCommand().lower()
