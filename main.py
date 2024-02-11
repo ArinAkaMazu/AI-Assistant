@@ -147,15 +147,15 @@ if __name__=="__main__":
                     remind=open("remindMe.txt","r")
                     speak("here are your tasks"+ remind.read())
 #---------------------------------------------------------------------------------------------------------
-                elif "shutdown the system" in query:
+                elif "shutdown the system" in query:    #shut down command
                     speak("Are You sure you want to shutdown")
                     shutdown = input("Do you wish to shutdown your computer? (y/n)")
-                    if shutdown == "y":
+                    if shutdown == "y": #shut down confirmation taken from user
                         os.system("shutdown /s /t 1")
 
-                    elif shutdown == "n":
+                    elif shutdown == "n": #breaks out of loop if reply given no
                         break
 #---------------------------------------------------------------------------------------------------------
                 elif "good night" in query:
                     speak ("bye boss. Wake me, when you need me!")
-                    exit() #exits the code 18
+                    exit() #exits the code
