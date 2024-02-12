@@ -173,6 +173,11 @@ if __name__=="__main__":
                     alarm(a)
                     speak("Done boss")
 #---------------------------------------------------------------------------------------------------------
+                elif "screenshot" in query:
+                     im = pyautogui.screenshot()
+                     im.save("ss.jpg")
+                     speak("Screenshot taken and saved")
+#---------------------------------------------------------------------------------------------------------
                 elif "remind me" in query:
                     remindMe=query.replace("remind me","")
                     remindMe=query.replace("doc","")
