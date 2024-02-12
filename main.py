@@ -8,6 +8,19 @@ import pyautogui                #allowing use of mouse and keyboard
 import random                   #choose random value
 import webbrowser               #open stuff in browsers i.e URL
 #----------------------------------------------------------------------------------------------------------
+for i in range(3):
+    a=input("enter the passowrd: ")
+    pw_file=open("password.txt","r")
+    pw=pw_file.read()
+    pw_file.close()
+    if (a==pw):
+        print("Welcome boss! Please speak [Wake up] to load me up")
+        break
+    elif (i==2 and a!=pw):
+        exit()
+    elif (a!=pw):
+        print("Try Again")
+#-------------------------------------------------------------------------------------------------------- 
 #main engine
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -54,6 +67,16 @@ if __name__=="__main__":
                 if "stop listening" in query:
                     speak("going silent mode") #breaks and loop and stops taking input
                     break #breaks out of loop after saying "stop listening"
+#-------------------------------------------------------------------------------------------------------- 
+                elif "change password" in query:
+                    speak("Whats the new password")
+                    new_pw=input("Enter new password \n")
+                    new_passowrd=open("password.txt","w")
+                    new_passowrd.write(new_pw)
+                    new_passowrd.close()
+                    speak(f"setting {new_pw} as password")
+                    speak("Password changed successfully!")
+#-------------------------------------------------------------------------------------------------------- 
                 elif "hello there" in query:
                     speak("General Kenobi!!!") #star wars reference 
                 elif "hello" in query:
@@ -85,6 +108,10 @@ if __name__=="__main__":
                     from keyboard import volumedown
                     speak("Turning volume down, sir")
                     volumedown()
+#-------------------------------------------------------------------------------------------------------- 
+                elif "news" in query:
+                    from news import latestnews
+                    latestnews()
 #-------------------------------------------------------------------------------------------------------- 
                 elif "open" in query:
                     from dictapps import openappweb #open apps  kkkk
