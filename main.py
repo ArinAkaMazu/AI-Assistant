@@ -53,7 +53,7 @@ if __name__=="__main__":
                 query= takeCommand().lower()
                 if "stop listening" in query:
                     speak("going silent mode") #breaks and loop and stops taking input
-                    break #end of loop after saying "good night"/shutting down
+                    break #breaks out of loop after saying "stop listening"
                 elif "hello there" in query:
                     speak("General Kenobi!!!") #star wars reference 
                 elif "hello" in query:
