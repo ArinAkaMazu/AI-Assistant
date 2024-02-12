@@ -7,7 +7,7 @@ import os                       #helps using operating system freely
 import pyautogui                #allowing use of mouse and keyboard
 import random                   #choose random value
 import webbrowser               #open stuff in browsers i.e URL
-import speedtest 
+import speedtest                #checks internet speed
 #----------------------------------------------------------------------------------------------------------
 for i in range(3):
     a=input("enter the passowrd: ")
@@ -15,7 +15,7 @@ for i in range(3):
     pw=pw_file.read()
     pw_file.close()
     if (a==pw):
-        print("Welcome boss! Please speak [Wake up] to load me up")
+        print("Welcome back boss! Please speak [Wake up] to load me up once \"listening\" starts to pop")
         break
     elif (i==2 and a!=pw):
         exit()
@@ -174,8 +174,8 @@ if __name__=="__main__":
                     speak("Done boss")
 #---------------------------------------------------------------------------------------------------------
                 elif "screenshot" in query:
-                     im = pyautogui.screenshot()
-                     im.save("ss.jpg")
+                     im = pyautogui.screenshot() #captures screenshot
+                     im.save("ss.jpg") #saves image by name of "ss.jpg"
                      speak("Screenshot taken and saved")
 #---------------------------------------------------------------------------------------------------------
                 elif "remind me" in query:
