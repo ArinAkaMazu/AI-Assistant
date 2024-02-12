@@ -7,6 +7,7 @@ import os                       #helps using operating system freely
 import pyautogui                #allowing use of mouse and keyboard
 import random                   #choose random value
 import webbrowser               #open stuff in browsers i.e URL
+import speedtest 
 #----------------------------------------------------------------------------------------------------------
 for i in range(3):
     a=input("enter the passowrd: ")
@@ -108,6 +109,15 @@ if __name__=="__main__":
                     from keyboard import volumedown
                     speak("Turning volume down, sir")
                     volumedown()
+#-------------------------------------------------------------------------------------------------------- 
+                elif "internet speed" in query:
+                    wifi  = speedtest.Speedtest()
+                    upload_net = wifi.upload()//1048576         
+                    download_net = wifi.download()//1048576
+                    print("Wifi Upload Speed is", upload_net)
+                    print("Wifi download speed is ",download_net)
+                    speak(f"Wifi Upload speed is {upload_net}")
+                    speak(f"Wifi download speed is {download_net}")
 #-------------------------------------------------------------------------------------------------------- 
                 elif "news" in query:
                     from news import latestnews
