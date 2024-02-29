@@ -62,7 +62,7 @@ if __name__=="__main__":
             from Greet import greet
             greet()
 #--------------------------------------------------------------------------------------------------------
-    #Greet values
+    #Greet command
             while True:
                 query= takeCommand().lower()
                 if "stop listening" in query:
