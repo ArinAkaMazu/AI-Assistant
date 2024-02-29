@@ -22,6 +22,9 @@ for i in range(3):
     elif (a!=pw):
         print("Try Again")
 #-------------------------------------------------------------------------------------------------------- 
+from gui import play_gif
+play_gif
+#-------------------------------------------------------------------------------------------------------- 
 #main engine
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -62,7 +65,7 @@ if __name__=="__main__":
             from Greet import greet
             greet()
 #--------------------------------------------------------------------------------------------------------
-    #Greet command
+#Greet command
             while True:
                 query= takeCommand().lower()
                 if "stop listening" in query:
@@ -124,7 +127,7 @@ if __name__=="__main__":
                     latestnews()
 #-------------------------------------------------------------------------------------------------------- 
                 elif "open" in query:
-                    from dictapps import openappweb #open apps  kkkk
+                    from dictapps import openappweb #open apps  
                     openappweb(query)
                 elif "close" in query:
                     from dictapps import closeappweb
