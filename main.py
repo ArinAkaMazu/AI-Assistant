@@ -127,8 +127,11 @@ if __name__=="__main__":
                     latestnews()
 #-------------------------------------------------------------------------------------------------------- 
                 elif "open" in query:
-                    from dictapps import openappweb #open apps  
-                    openappweb(query)
+                        query=query.replace("open","")
+                        pyautogui.press("super")
+                        pyautogui.typewrite(query)
+                        pyautogui.sleep(2)
+                        pyautogui.press("enter")
                 elif "close" in query:
                     from dictapps import closeappweb
                     closeappweb(query)
@@ -169,9 +172,10 @@ if __name__=="__main__":
                 elif "time" in query:
                     strTime = datetime.datetime.now().strftime("%H:%M")    #tells current time
                     speak(f"Boss, its currently {strTime} right now")
+#---------------------------------------------------------------------------------------------------------
                 elif "set alarm" in query:
                     print("input time, Example: 10 and 10 and 10")
-                    speak("please set the time")
+                    speak("please set the time")                    #sets alarm
                     a=input("Enter the time")
                     alarm(a)
                     speak("Done boss")
