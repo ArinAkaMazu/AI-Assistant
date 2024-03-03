@@ -125,6 +125,13 @@ if __name__=="__main__":
                 elif "news" in query:
                     from news import latestnews
                     latestnews()
+#---------------------------------------------------------------------------------------------------------
+                elif "open" in query:
+                        query=query.replace("open","")
+                        pyautogui.press("super")
+                        pyautogui.typewrite(query)
+                        pyautogui.sleep(2)
+                        pyautogui.press("enter")
 #-------------------------------------------------------------------------------------------------------- 
                 elif "search" in query:
                     from dictapps import openappweb #open apps  
@@ -151,12 +158,7 @@ if __name__=="__main__":
                     elif b==3:
                         webbrowser.open("https://youtu.be/M2cckDmNLMI?si=vw6kY3zS1g1N9lSX")
 #---------------------------------------------------------------------------------------------------------
-                    elif "open" in query:
-                        query=query.replace("open","")
-                        pyautogui.press("super")
-                        pyautogui.typewrite(query)
-                        pyautogui.sleep(2)
-                        pyautogui.press("enter")
+                    
 #--------------------------------------------------------------------------------------------------------
                 elif "temperature" in query:
                     search = "temperature in alwar"
