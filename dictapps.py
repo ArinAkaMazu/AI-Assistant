@@ -21,7 +21,7 @@ def openappweb(query): #searching apps on web
     if ".com" in query or ".co.in" in query or ".org" in query:
         query = query.replace("open","")
         query = query.replace("doc","")
-        query = query.replace("launch","")
+        query = query.replace("search","")
         query = query.replace(" ","")
         webbrowser.open(f"https://www.{query}")
     else:
