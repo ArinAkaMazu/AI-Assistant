@@ -156,9 +156,7 @@ if __name__=="__main__":
                     elif b==2:
                         webbrowser.open("https://youtu.be/zuoVd2QNxJo?si=a6BgXrIZ8PyUSRfX")
                     elif b==3:
-                        webbrowser.open("https://youtu.be/M2cckDmNLMI?si=vw6kY3zS1g1N9lSX")
-#---------------------------------------------------------------------------------------------------------
-                    
+                        webbrowser.open("https://youtu.be/M2cckDmNLMI?si=vw6kY3zS1g1N9lSX")              
 #--------------------------------------------------------------------------------------------------------
                 elif "temperature" in query:
                     search = "temperature in alwar"
