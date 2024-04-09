@@ -147,7 +147,7 @@ if __name__=="__main__":
                     from search import searchYoutube #search input on youtube
                     searchYoutube(query)
 #--------------------------------------------------------------------------------------------------------
-                elif "play me some music" in query: 
+                elif "play some music" in query: 
                     speak("Playing you some good music, boss")
                     a=(1,2,3)           #Plays random music/video from youtube
                     b=random.choice(a)
