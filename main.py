@@ -205,7 +205,6 @@ if __name__=="__main__":
                     shutdown = input("Do you wish to shutdown your computer? (y/n)")
                     if shutdown == "y": #shut down confirmation taken from user
                         os.system("shutdown /s /t 1")
-
                     elif shutdown == "n": #breaks out of loop if reply given no
                         break
 #---------------------------------------------------------------------------------------------------------
