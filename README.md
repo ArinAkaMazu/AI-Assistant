@@ -22,4 +22,4 @@ To get started with the Virtual AI Assistant, follow these simple steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/virtual-ai-assistant.git
+   git clone https://github.com/ArinAkaMazu/AI-Assistant.git
