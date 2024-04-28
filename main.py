@@ -140,23 +140,26 @@ if __name__=="__main__":
                     from dictapps import closeappweb
                     closeappweb(query)
 #--------------------------------------------------------------------------------------------------------
-                elif "search on google" in query:
+                elif "google" in query:
                     from search import searchGoogle #search input on google
                     searchGoogle(query)
-                elif "search on youtube" in query:
+                elif "youtube" in query:
                     from search import searchYoutube #search input on youtube
                     searchYoutube(query)
+                elif "wikipedia" in query:
+                    from search import searchWikipedia
+                    searchWikipedia(query)
 #--------------------------------------------------------------------------------------------------------
-                elif "play some music" in query: 
+                elif "music" in query: 
                     speak("Playing you some good music, boss")
                     a=(1,2,3)           #Plays random music/video from youtube
                     b=random.choice(a)
                     if b==1:
-                        webbrowser.open("https://youtu.be/fhzKLBZJC3w?si=EkkEe8dfmZ2GtdI7")
+                        webbrowser.open("https://youtu.be/FYxUJFD9Ye4?si=X04WDh5q0ImQtEBK")
                     elif b==2:
-                        webbrowser.open("https://youtu.be/zuoVd2QNxJo?si=a6BgXrIZ8PyUSRfX")
+                        webbrowser.open("https://youtu.be/bKZTnnFU9HA?si=cKBtxh-j9MCnycOv")
                     elif b==3:
-                        webbrowser.open("https://youtu.be/M2cckDmNLMI?si=vw6kY3zS1g1N9lSX")              
+                        webbrowser.open("https://youtu.be/M2cckDmNLMI?si=vw6kY3zS1g1N9lSX")             
 #--------------------------------------------------------------------------------------------------------
                 elif "temperature" in query:
                     search = "temperature in alwar"
