@@ -46,8 +46,7 @@ def closeappweb(query):
         pyautogui.hotkey("ctrl","w")
         sleep(0.5)
         pyautogui.hotkey("ctrl","w")
-        speak("All tabs closed")
-        
+        speak("All tabs closed")   
     elif "four tab" in query:
         pyautogui.hotkey("ctrl","w")
         sleep(0.5)
@@ -68,7 +67,6 @@ def closeappweb(query):
         sleep(0.5)
         pyautogui.hotkey("ctrl","w")
         speak("All tabs closed")
-
     else:
         keys = list(dictapp.keys())
         for app in keys:
