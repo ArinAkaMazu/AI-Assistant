@@ -8,6 +8,8 @@ import pyautogui                #allowing use of mouse and keyboard
 import random                   #choose random value
 import webbrowser               #open stuff in browsers i.e URL
 import speedtest                #checks internet speed
+from plyer import notification  #notification
+from pygame import mixer        #import sounds
 #----------------------------------------------------------------------------------------------------------
 for i in range(3):
     a=input("enter the passowrd: ")
@@ -192,16 +194,74 @@ if __name__=="__main__":
                      im.save("ss.jpg") #saves image by name of "ss.jpg"
                      speak("Screenshot taken and saved")
 #---------------------------------------------------------------------------------------------------------
-                elif "remind me" in query:
-                    remindMe=query.replace("remind me","")
-                    remindMe=query.replace("doc","")
-                    speak("Ok i will"+ remindMe)
-                    remind=open("remindMe.txt","w")
-                    remind.write(remindMe)
-                    remind.close()
-                elif "show me my tasks" in query:
-                    remind=open("remindMe.txt","r")
-                    speak("here are your tasks"+ remind.read())
+                elif "remember that" in query:
+                    rememberMessage = query.replace("remember that","")
+                    rememberMessage = query.replace("jarvis","")
+                    speak("You told me to remember that"+rememberMessage)
+                    remember = open("Remember.txt","a")
+                    remember.write(rememberMessage)
+                    remember.close()
+                elif "what do you remember" in query:
+                    remember = open("Remember.txt","r")
+                    speak("You told me to remember that" + remember.read())
+#---------------------------------------------------------------------------------------------------------
+                elif "schedule my day" in query:
+                    tasks = [] #Empty list 
+                    speak("Do you want to clear old tasks (Plz speak YES or NO)")
+                    query = takeCommand().lower()
+                    if "yes" in query:
+                        file = open("tasks.txt","w")
+                        file.write(f"")
+                        file.close()
+                        no_tasks = int(input("Enter the no. of tasks :- "))
+                        i = 0
+                        for i in range(no_tasks):
+                            tasks.append(input("Enter the task :- "))
+                            file = open("tasks.txt","a")
+                            file.write(f"{i}. {tasks[i]}\n")
+                            file.close()
+                    elif "no" in query:
+                        i = 0
+                        no_tasks = int(input("Enter the no. of tasks :- "))
+                        for i in range(no_tasks):
+                            tasks.append(input("Enter the task :- "))
+                            file = open("tasks.txt","a")
+                            file.write(f"{i}. {tasks[i]}\n")
+                            file.close()
+                    elif "show my schedule" in query:
+                        file = open("tasks.txt","r")
+                        content = file.read()
+                        file.close()
+                        mixer.init()
+                        mixer.music.load("notification.mp3")
+                        mixer.music.play()
+                        notification.notify(
+                            title = "My schedule :-",
+                            message = content,
+                            timeout = 15
+                            )
+#---------------------------------------------------------------------------------------------------------
+                elif "ipl score" in query:
+                    url = "https://www.cricbuzz.com/"
+                    page = requests.get(url)
+                    soup = BeautifulSoup(page.text,"html.parser")
+                    team1 = soup.find_all(class_ = "cb-ovr-flo cb-hmscg-tm-nm")[0].get_text()
+                    team2 = soup.find_all(class_ = "cb-ovr-flo cb-hmscg-tm-nm")[1].get_text()
+                    team1_score = soup.find_all(class_ = "cb-ovr-flo")[8].get_text()
+                    team2_score = soup.find_all(class_ = "cb-ovr-flo")[10].get_text()
+
+                    a = print(f"{team1} : {team1_score}")
+                    b = print(f"{team2} : {team2_score}")
+
+                    notification.notify(
+                        title = "IPL SCORE :- ",
+                        message = f"{team1} : {team1_score}\n {team2} : {team2_score}",
+                        timeout = 15
+                    )
+#---------------------------------------------------------------------------------------------------------
+                elif "whatsapp" in query:
+                    from Whatsapp import sendMessage
+                    sendMessage()
 #---------------------------------------------------------------------------------------------------------
                 elif "shutdown the system" in query:    #shut down command
                     speak("Are You sure you want to shutdown")
