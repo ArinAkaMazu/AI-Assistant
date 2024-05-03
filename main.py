@@ -263,6 +263,10 @@ if __name__=="__main__":
                     from Whatsapp import sendMessage
                     sendMessage()
 #---------------------------------------------------------------------------------------------------------
+                elif "play a game" in query:
+                    from game import game_play
+                    game_play()
+#---------------------------------------------------------------------------------------------------------
                 elif "shutdown the system" in query:    #shut down command
                     speak("Are You sure you want to shutdown")
                     shutdown = input("Do you wish to shutdown your computer? (y/n)")
