@@ -23,3 +23,7 @@ To get started with the Virtual AI Assistant, follow these simple steps:
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/ArinAkaMazu/AI-Assistant.git
+
+2. **Install Packages**
+   ```
+   pip install -r requirements.txt
